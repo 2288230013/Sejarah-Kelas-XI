@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Perlawanan Pribumi terhadap Kolonialisme | Media Pembelajaran Sejarah SMA/SMK Kelas XI</title>
+  <meta name="description" content="Platform pembelajaran interaktif sejarah perlawanan rakyat Indonesia terhadap Portugis, VOC, dan Hindia Belanda untuk siswa SMA/SMK Kelas XI. Dilengkapi studio pembuat materi, kuis edukatif, peta interaktif, dan timeline.">
+  
+  <!-- Google Fonts: Cinzel, Playfair Display & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800;900&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚔️</text></svg>">
+  
+  <!-- Open Graph / WhatsApp Preview Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Nusantara Bangkit - Media Pembelajaran Sejarah SMA/SMK Kelas XI">
+  <meta property="og:description" content="Media Pembelajaran Interaktif: Perlawanan Pribumi terhadap Kolonialisme Portugis, VOC, dan Hindia Belanda. Dilengkapi Peta 3D Relief, Video Sejarah, Kuis, dan Integrasi Spreadsheet.">
+  <meta property="og:image" content="assets/hero_perlawanan.jpg">
+  
+  <!-- Stylesheet Utama -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- =========================================================================
+       NAVIGASI UTAMA (HEADER)
+       ========================================================================= -->
+  <header class="navbar-wrapper">
+    <nav class="navbar" aria-label="Navigasi Utama">
+      <div class="nav-brand" data-nav-target="beranda" onclick="navigateTo('beranda')">
+        <div class="brand-emblem" aria-hidden="true">
+          <!-- Emblem Benteng / Mahkota Kesultanan -->
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M2 20h20"></path>
+            <path d="M5 20V8l3-2 4 3 4-3 3 2v12"></path>
+            <path d="M9 14h6"></path>
+            <path d="M10 20v-3a2 2 0 0 1 4 0v3"></path>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <h1>NUSANTARA BANGKIT</h1>
+          <p>Sejarah Perlawanan Pribumi • Kelas XI</p>
+        </div>
+      </div>
+
+      <ul class="nav-menu" id="navMenu">
+        <li>
+          <a class="nav-link active" data-view="beranda" href="#beranda">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+            <span>Beranda</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" data-view="materi" href="#materi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+            <span>Materi</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" data-view="kuis" href="#kuis">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+            <span>Kuis</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" data-view="peta" href="#peta">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="1 6 1 22 8 18 16 22 23 18 23 2 16 6 8 2 1 6"></polygon><line x1="8" y1="2" x2="8" y2="18"></line><line x1="16" y1="6" x2="16" y2="22"></line></svg>
+            <span>Peta</span>
+          </a>
+        </li>
+        <li>
+          <a class="nav-link" data-view="timeline" href="#timeline">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <span>Timeline</span>
+          </a>
+        </li>
+
+        <!-- MENU KHUSUS GURU / ADMIN (Terkunci & Tersembunyi dari Siswa) -->
+        <li class="admin-only-item">
+          <a class="nav-link" data-view="buat-materi" href="#buat-materi">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"></path><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path></svg>
+            <span>✏️ Buat Materi</span>
+          </a>
+        </li>
+        <li class="admin-only-item">
+          <a class="nav-link" data-view="edit-kuis" href="#edit-kuis">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
+            <span>⚙️ Edit Kuis</span>
+          </a>
+        </li>
+      </ul>
+
+      <div class="nav-actions">
+        <!-- Identitas Siswa Aktif -->
+        <button class="btn-student-profile" id="btnStudentProfile" onclick="openStudentIdentityModal()" title="Klik untuk melengkapi/mengubah identitas Anda">
+          <span style="font-size: 1.05rem;">👤</span>
+          <span id="navStudentNameText">Isi Identitas Siswa</span>
+        </button>
+
+        <!-- Tombol Masuk Guru / Admin -->
+        <button class="btn-admin-mode" id="btnAdminMode" onclick="handleAdminModeClick()" title="Akses Khusus Guru & Administrator">
+          <span id="adminLockIcon">🔐</span>
+          <span id="adminBtnText">Mode Guru</span>
+        </button>
+
+        <!-- Tombol Sinkronisasi Google Apps Script (Khusus Guru / Admin) -->
+        <button class="btn-sync admin-only-item" id="btnOpenSyncModal" title="Pengaturan Sinkronisasi Google Apps Script / Google Sheets">
+          <span class="sync-status-dot" id="syncStatusDot"></span>
+          <span id="syncStatusText">Sheets</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path></svg>
+        </button>
+
+        <button class="mobile-toggle" id="mobileMenuToggle" aria-label="Buka Menu Navigasi">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- =========================================================================
+       KONTEN UTAMA APLIKASI (VIEWS)
+       ========================================================================= -->
+  <main class="main-content">
+
+    <!-- =======================================================================
+         VIEW 1: HALAMAN BERANDA
+         ======================================================================= -->
+    <section class="view-section active" id="view-beranda">
+      
+      <!-- HERO BANNER MUSEUM SEJARAH DIGITAL -->
+      <div class="hero-card">
+        <div class="hero-media-wrapper">
+          <img src="assets/hero_perlawanan.jpg" alt="Lukisan Pahlawan dan Perlawanan Pribumi Nusantara terhadap Penjajah" class="hero-img">
+          <div class="hero-overlay">
+            <div class="hero-badge">
+              <span>🏛️ Museum Sejarah Digital • Kelas XI SMA/SMK</span>
+            </div>
+            <h1 class="hero-title">Perlawanan Pribumi terhadap Kolonialisme</h1>
+            <p class="hero-subtitle">Belajar sejarah perjuangan rakyat Indonesia dengan cara yang lebih interaktif.</p>
+            <div class="hero-cta-group">
+              <button class="btn btn-primary" onclick="navigateTo('materi')">
+                <span>📚</span>
+                <span>Mulai Belajar</span>
+              </button>
+              <button class="btn btn-maroon" onclick="navigateTo('kuis')">
+                <span>🎮</span>
+                <span>Mainkan Kuis</span>
+              </button>
+              <button class="btn btn-gold" onclick="navigateTo('peta')" style="background: linear-gradient(135deg, #D4AF37, #AA820A); color: white; border: none;">
+                <span>🗺️</span>
+                <span>Peta Palagan</span>
+              </button>
+              <button class="btn btn-outline admin-only-item" onclick="navigateTo('buat-materi')">
+                <span>✏️</span>
+                <span>Buat Materi (Guru)</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STRIP STATISTIK PEMBELAJARAN -->
+      <div class="stats-strip">
+        <div class="stat-box">
+          <div class="stat-icon">⚔️</div>
+          <div>
+            <div class="stat-num">13</div>
+            <div class="stat-label">Palagan Perlawanan Nusantara</div>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">👑</div>
+          <div>
+            <div class="stat-num">3 Era</div>
+            <div class="stat-label">Portugis, VOC, & Hindia Belanda</div>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">👤</div>
+          <div>
+            <div class="stat-num">15+</div>
+            <div class="stat-label">Pahlawan & Pemimpin Agung</div>
+          </div>
+        </div>
+        <div class="stat-box">
+          <div class="stat-icon">✨</div>
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Interaktif & Visual Bermakna</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIGA KARTU KATEGORI ERA KOLONIALISME -->
+      <div class="section-header">
+        <span class="section-tag">Jelajahi Kronik Sejarah</span>
+        <h2 class="section-title">Tiga Babak Perlawanan Pribumi</h2>
+        <p class="section-desc">Pilihlah salah satu era di bawah ini untuk langsung mempelajari strategi, latar belakang, dan heroisme para leluhur bangsa.</p>
+      </div>
+
+      <div class="era-categories-grid">
+        <!-- KATEGORI 1: PORTUGIS -->
+        <article class="era-card" onclick="openMateriWithFilter('portugis')">
+          <div class="era-card-media">
+            <img src="assets/perlawanan_portugis.jpg" alt="Lukisan Sultan Baabullah Mengusir Portugis di Ternate" class="era-card-img">
+            <span class="era-card-badge">Abad 16 (1511 – 1575 M)</span>
+          </div>
+          <div class="era-card-body">
+            <h3 class="era-card-title">PORTUGIS</h3>
+            <p class="era-card-period">Monopoli Rempah & Perang Benteng</p>
+            <p class="era-card-desc">Kedatangan Portugis di Malaka dan Maluku memicu perlawanan sengit kesultanan-kesultanan maritim untuk merebut kembali hegemoni niaga dan kedaulatan tanah air.</p>
+            <div class="era-topics-list">
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('ternate-portugis')">Ternate</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('demak-portugis')">Demak</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('aceh-portugis')">Aceh</span>
+            </div>
+            <div class="era-card-footer">
+              <span style="font-weight: 700; color: var(--maroon);">Buka Materi Portugis (3 Topik) →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- KATEGORI 2: VOC -->
+        <article class="era-card" onclick="openMateriWithFilter('voc')">
+          <div class="era-card-media">
+            <img src="assets/perlawanan_voc.jpg" alt="Lukisan Sultan Hasanuddin dan Sultan Agung Melawan VOC" class="era-card-img">
+            <span class="era-card-badge">Abad 17 (1602 – 1799 M)</span>
+          </div>
+          <div class="era-card-body">
+            <h3 class="era-card-title">VOC</h3>
+            <p class="era-card-period">Hegemoni Batavia & Perang Makassar</p>
+            <p class="era-card-desc">Serbuan akbar Mataram mengepung Batavia serta perang laut terhebat Sultan Hasanuddin di Makassar menolak cengkeraman monopoli serikat dagang Kompeni.</p>
+            <div class="era-topics-list">
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('mataram-voc')">Mataram</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('hasanuddin-voc')">Sultan Hasanuddin</span>
+            </div>
+            <div class="era-card-footer">
+              <span style="font-weight: 700; color: var(--maroon);">Buka Materi VOC (2 Topik) →</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- KATEGORI 3: PEMERINTAH HINDIA BELANDA -->
+        <article class="era-card" onclick="openMateriWithFilter('belanda')">
+          <div class="era-card-media">
+            <img src="assets/perlawanan_belanda.jpg" alt="Lukisan Pangeran Diponegoro, Pattimura, dan Pejuang Hindia Belanda" class="era-card-img">
+            <span class="era-card-badge">Abad 19 – Awal Abad 20</span>
+          </div>
+          <div class="era-card-body">
+            <h3 class="era-card-title">PEMERINTAH BELANDA</h3>
+            <p class="era-card-period">Perang Semesta & Benteng Stelsel</p>
+            <p class="era-card-desc">Gelombang perlawanan rakyat nusantara dari Sabang sampai Merauke yang menguras kas kerajaan kolonial dan memicu lahirnya heroisme tanpa akhir.</p>
+            <div class="era-topics-list">
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('pattimura-maluku')">Pattimura</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('diponegoro-jawa')">Diponegoro</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('palembang-belanda')">Palembang</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('padri-sumbar')">Padri</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('perang-aceh')">Aceh</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('sisingamangaraja-toba')">Sisingamangaraja</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('bali-puputan')">Bali</span>
+              <span class="topic-chip interactive" onclick="event.stopPropagation(); openMateriDetail('banjar-antasari')">Banjar</span>
+            </div>
+            <div class="era-card-footer">
+              <span style="font-weight: 700; color: var(--maroon);">Buka Materi Pemerintah Belanda (8 Topik) →</span>
+            </div>
+          </div>
+        </article>
+      </div>
+
+    </section>
+
+    <!-- =======================================================================
+         VIEW 2: HALAMAN MATERI LENGKAP (DAFTAR TOPIK 3 BAGIAN BESAR)
+         ======================================================================= -->
+    <section class="view-section" id="view-materi">
+      <div class="section-header">
+        <span class="section-tag">Kurikulum Sejarah Kelas XI</span>
+        <h2 class="section-title">Pustaka Materi Perlawanan Pribumi</h2>
+        <p class="section-desc">Materi dibagi menjadi tiga bagian besar. Klik kartu mana saja untuk membaca format terstruktur: Latar Belakang → Tokoh → Jalannya Perlawanan → Strategi → Akhir Perlawanan → Dampak.</p>
+      </div>
+
+      <!-- KONTROL FILTER & PENCARIAN -->
+      <div class="materi-controls">
+        <div class="materi-filters">
+          <button class="filter-btn active" data-filter="all">Semua Era (13 Topik)</button>
+          <button class="filter-btn" data-filter="portugis">🛡️ Portugis (3 Topik)</button>
+          <button class="filter-btn" data-filter="voc">⚓ VOC (2 Topik)</button>
+          <button class="filter-btn" data-filter="belanda">⚔️ Hindia Belanda (8 Topik)</button>
+        </div>
+        <div class="materi-search-box">
+          <span class="search-icon">🔍</span>
+          <input type="text" class="materi-search-input" id="materiSearchInput" placeholder="Cari tokoh, wilayah, atau benteng...">
+        </div>
+      </div>
+
+      <!-- KONTEN MATERI (DIBAGI 3 BAGIAN BESAR) -->
+      <div id="materiSectionsContainer">
+        <!-- Rendered by app.js dengan struktur Bagian A, B, C -->
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 2B: DETAIL MATERI (INTERACTIVE READER DENGAN AUDIO & TABS)
+         ======================================================================= -->
+    <section class="view-section" id="view-materi-detail">
+      <div class="materi-detail-view">
+        <!-- HEADER DETAIL -->
+        <div class="detail-hero-banner">
+          <img src="assets/hero_perlawanan.jpg" id="detailHeroBg" class="detail-hero-bg" alt="Banner Topik">
+          
+          <button class="detail-nav-back" id="btnBackToMateri">
+            <span>← Kembali ke Pustaka Materi</span>
+          </button>
+
+          <div class="detail-hero-content">
+            <div class="detail-meta-tags">
+              <span class="materi-era-badge voc" id="detailEraBadge">Perlawanan</span>
+              <span id="detailRegion" style="font-size: 0.88rem; font-weight: 600; opacity: 0.9;">📍 Wilayah</span>
+            </div>
+            <h2 class="detail-title" id="detailTitle">Judul Materi</h2>
+            <div style="font-size: 1.15rem; font-weight: 700; color: var(--gold-light);" id="detailHeroName">Tokoh Pahlawan</div>
+            <p class="detail-hero-quote" id="detailQuote">"Kutipan Tokoh"</p>
+          </div>
+        </div>
+
+        <!-- BAR KONTROL AUDIO NARATOR -->
+        <div class="audio-narator-bar">
+          <div class="audio-info">
+            <span>🎧 Media Pendengaran Siswa:</span>
+            <span style="color: var(--text-muted);">Dengarkan ringkasan materi dibacakan secara otomatis untuk mempermudah belajar.</span>
+          </div>
+          <div class="audio-controls" style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+            <button class="btn btn-secondary" id="btnToggleNarator" style="padding: 0.45rem 1rem; font-size: 0.88rem;">
+              <span>🔊</span>
+              <span>Dengarkan Narasi Sejarah</span>
+            </button>
+            <button class="btn btn-maroon" id="btnWatchMateriVideo" style="padding: 0.45rem 1rem; font-size: 0.88rem;">
+              <span>🎬</span>
+              <span>Tonton Video YouTube</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- TABS FORMAT 6 LANGKAH -->
+        <div class="detail-format-tabs" role="tablist">
+          <button class="format-tab-btn active" data-tab="latarBelakang">📜 1. Latar Belakang</button>
+          <button class="format-tab-btn" data-tab="tokoh">👤 2. Tokoh</button>
+          <button class="format-tab-btn" data-tab="jalannyaPerlawanan">⚔️ 3. Jalannya Perlawanan</button>
+          <button class="format-tab-btn" data-tab="strategi">🎯 4. Strategi</button>
+          <button class="format-tab-btn" data-tab="akhirPerlawanan">🏁 5. Akhir Perlawanan</button>
+          <button class="format-tab-btn" data-tab="dampak">🌟 6. Dampak</button>
+        </div>
+
+        <!-- AREA KONTEN TAB & STEP NAVIGATION -->
+        <div class="detail-tab-content-area" id="detailTabContentArea">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 3: FITUR "BUAT MATERI" (SLIDE STUDIO SEPERTI POWERPOINT SEDERHANA)
+         ======================================================================= -->
+    <section class="view-section" id="view-buat-materi">
+      <div class="section-header">
+        <span class="section-tag">Studio Presentasi Interaktif</span>
+        <h2 class="section-title">Buat Materi Pembelajaran Mandiri</h2>
+        <p class="section-desc">Guru dan siswa dapat menyusun lembar materi bergaya PowerPoint sederhana. Pilih template, tambahkan teks, gambar, ikon, atau bentuk, lalu geser dengan drag and drop.</p>
+      </div>
+
+      <div class="slide-studio-container">
+        <!-- TOP TOOLBAR STUDIO -->
+        <div class="studio-toolbar">
+          <div class="studio-title-box">
+            <span style="font-size: 1.2rem;">📁</span>
+            <input type="text" class="slide-title-input" id="slideTitleInput" value="Materi Perlawanan Pribumi" title="Nama Dokumen Slide">
+          </div>
+
+          <div class="studio-actions">
+            <button class="btn btn-secondary" id="btnOpenSavedModal" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;" title="Buka Materi yang Pernah Disimpan">
+              <span>📂 Buka Simpanan</span>
+            </button>
+            <button class="btn btn-secondary" id="btnAddSlide" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;" title="Tambah Slide Kosong">
+              <span>➕ Slide Baru</span>
+            </button>
+            <button class="btn btn-secondary" id="btnDuplicateSlide" style="padding: 0.45rem 0.9rem; font-size: 0.85rem;" title="Duplikasi Slide Aktif">
+              <span>📋 Duplikasi</span>
+            </button>
+            <button class="btn btn-secondary" id="btnDeleteSlide" style="padding: 0.45rem 0.9rem; font-size: 0.85rem; color: #FFCDD2;" title="Hapus Slide Aktif">
+              <span>🗑️ Hapus</span>
+            </button>
+            <button class="btn btn-primary" id="btnPreviewSlideShow" style="padding: 0.45rem 1.1rem; font-size: 0.85rem;" title="Lihat Tampilan Layar Penuh">
+              <span>👁️ Preview</span>
+            </button>
+            <button class="btn btn-maroon" id="btnSaveStudio" style="padding: 0.45rem 1.1rem; font-size: 0.85rem;" title="Simpan ke Browser & Google Apps Script">
+              <span>💾 Simpan Materi</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- BAR PILIHAN 8 TEMPLATE CEPAT -->
+        <div class="studio-templates-bar">
+          <span style="font-size: 0.8rem; font-weight: 800; color: var(--maroon); align-self: center; white-space: nowrap;">Template Slide:</span>
+          <button class="template-pill-btn" onclick="addSlideFromTemplate('cover')">+ Cover Materi</button>
+          <button class="template-pill-btn" onclick="addSlideFromTemplate('profil-tokoh')">+ Profil Tokoh</button>
+          <button class="template-pill-btn" onclick="addSlideFromTemplate('timeline')">+ Timeline</button>
+          <button class="template-pill-btn" onclick="addSlideFromTemplate('peta-perlawanan')">+ Peta Perlawanan</button>
+          <button class="template-pill-btn" onclick="addSlideFromTemplate('sebab-akibat')">+ Sebab dan Akibat</button>
+          <button class="template-pill-btn" onclick="addSlideFromTemplate('jalannya-perlawanan')">+ Jalannya Perlawanan</button>
+          <button class="template-pill-btn" onclick="addSlideFromTemplate('dampak')">+ Dampak</button>
+          <button class="template-pill-btn" onclick="addSlideFromTemplate('kesimpulan')">+ Kesimpulan</button>
+        </div>
+
+        <!-- WORKSPACE 3-PANEL -->
+        <div class="studio-workspace">
+          <!-- PANEL KIRI: DAFTAR SLIDE THUMBNAIL -->
+          <aside class="studio-left-panel">
+            <div class="panel-header-title">Urutan Slide (Kanvas)</div>
+            <div class="slide-thumb-list" id="slideThumbList">
+              <!-- Rendered by app.js -->
+            </div>
+          </aside>
+
+          <!-- PANEL TENGAH: KANVAS SLIDE 16:9 INTERAKTIF -->
+          <main class="studio-center-panel">
+            <div class="slide-canvas-viewport bg-parchment" id="slideCanvasViewport">
+              <!-- Rendered by app.js -->
+            </div>
+            <div style="margin-top: 1rem; color: #E6DFD5; font-size: 0.82rem; display: flex; gap: 1.5rem; flex-wrap: wrap; justify-content: center;">
+              <span>💡 <b>Tips:</b> Klik dan seret (drag) elemen di dalam kanvas untuk memindahkannya.</span>
+              <span>✏️ Klik elemen untuk mengatur teks, ukuran, atau warna di panel kanan.</span>
+            </div>
+          </main>
+
+          <!-- PANEL KANAN: INSPEKTUR ELEMEN & TEMA -->
+          <aside class="studio-right-panel">
+            <div class="inspector-section">
+              <div class="inspector-label">Tambah Elemen ke Slide</div>
+              <div class="tools-btn-grid">
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('title')">
+                  <span>🔤</span> Teks Judul
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('text')">
+                  <span>📝</span> Paragraf
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('quote')">
+                  <span>💬</span> Kutipan
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('badge')">
+                  <span>🏷️</span> Lencana
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('image')">
+                  <span>🖼️</span> Gambar
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('icon')">
+                  <span>⭐</span> Ikon
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('shape')">
+                  <span>⬛</span> Bentuk
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('timeline-box')">
+                  <span>⏳</span> Timeline
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('map-stamp')">
+                  <span>🗺️</span> Peta
+                </button>
+                <button class="tool-action-btn" onclick="addElementToActiveSlide('hero-card')">
+                  <span>👤</span> Tokoh
+                </button>
+              </div>
+            </div>
+
+            <div class="inspector-section">
+              <div class="inspector-label">Warna Background Slide</div>
+              <div class="bg-presets-row">
+                <div class="bg-preset-dot" style="background: #FDF9F0;" onclick="changeSlideBackground('parchment')" title="Parchment Krem"></div>
+                <div class="bg-preset-dot" style="background: #801616;" onclick="changeSlideBackground('maroon')" title="Merah Marun Museum"></div>
+                <div class="bg-preset-dot" style="background: #16243E;" onclick="changeSlideBackground('navy')" title="Biru Samudra Tua"></div>
+                <div class="bg-preset-dot" style="background: #D4AF37;" onclick="changeSlideBackground('gold')" title="Emas Keagungan"></div>
+                <div class="bg-preset-dot" style="background: #3A2010;" onclick="changeSlideBackground('wood')" title="Kayu Jati Kuno"></div>
+              </div>
+            </div>
+
+            <div id="elementPropertiesContainer">
+              <!-- Rendered by app.js saat elemen dipilih -->
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 4: GAME EDUKATIF (KUIS PERLAWANAN NUSANTARA)
+         ======================================================================= -->
+    <section class="view-section" id="view-kuis">
+      <div class="quiz-wrapper">
+        <div class="section-header" style="margin-bottom: 1.5rem;">
+          <span class="section-tag">Uji Pemahaman Siswa</span>
+          <h2 class="section-title">Kuis Perlawanan Nusantara</h2>
+          <p class="section-desc">Uji pengetahuan sejarah perjuangan pribumi melawan bangsa imperialis dengan menjawab soal-soal interaktif berikut ini.</p>
+        </div>
+
+        <!-- TOP BAR PROGRESS -->
+        <div class="quiz-top-bar">
+          <div class="quiz-header-info">
+            <div class="quiz-title-badge">
+              <span>🎮</span>
+              <span>KUIS PERLAWANAN NUSANTARA</span>
+            </div>
+            <div class="quiz-counter" id="quizCounterText">Soal 1 dari 10</div>
+          </div>
+          <div class="quiz-progress-track">
+            <div class="quiz-progress-bar" id="quizProgressBar"></div>
+          </div>
+        </div>
+
+        <!-- AREA BERMAIN KUIS -->
+        <div id="quizPlayArea">
+          <div class="quiz-card">
+            <!-- Media Ilustrasi Soal -->
+            <div class="quiz-media-wrapper" id="quizImageWrapper">
+              <img src="assets/hero_perlawanan.jpg" id="quizQuestionImg" class="quiz-media-img" alt="Ilustrasi Soal">
+            </div>
+
+            <!-- Teks Pertanyaan -->
+            <h3 class="quiz-question-text" id="quizQuestionText">Pertanyaan sedang dimuat...</h3>
+
+            <!-- Opsi Pilihan A, B, C, D -->
+            <div class="quiz-options-list" id="quizOptionsList">
+              <!-- Rendered by app.js -->
+            </div>
+
+            <!-- Kotak Penjelasan Jawaban (Muncul setelah memilih) -->
+            <div class="quiz-explanation-box" id="quizExplanationBox">
+              <div class="explanation-title">💡 Penjelasan Sejarah:</div>
+              <p class="explanation-text" id="quizExplanationText">Penjelasan jawaban benar...</p>
+            </div>
+
+            <!-- Tombol Lanjut Soal -->
+            <div class="quiz-footer-actions">
+              <button class="btn btn-primary" id="btnNextQuestion" style="display: none;">
+                <span>Lanjut ke Soal Berikutnya →</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- LAYAR HASIL SELESAI KUIS SESUAI PERSIS DENGAN FORMAT SOAL -->
+        <div class="quiz-result-card" id="quizResultArea">
+          <div class="result-emoji" id="resultEmoji">🎉</div>
+          <h2 style="font-size: 2.2rem; color: var(--brown-deep); font-family: 'Cinzel', serif;">🎉 Kuis Selesai!</h2>
+          <p id="resultPredicate" style="font-size: 1.15rem; color: var(--maroon); font-weight: 700; margin-top: 0.5rem;">Pakar Sejarah Nusantara</p>
+
+          <div class="result-stats-row">
+            <span class="result-stat-pill neutral" id="resultSkorText">Skor: 80/100</span>
+            <span class="result-stat-pill correct" id="resultCorrectVal">Benar: 8</span>
+            <span class="result-stat-pill wrong" id="resultWrongVal">Salah: 2</span>
+            <span class="result-stat-pill neutral" id="resultNilaiText" style="background: #FFFDF0; border-color: var(--gold); font-weight: 800;">Nilai: 80</span>
+          </div>
+
+          <!-- FORM PENGIRIMAN NILAI KE GOOGLE SHEETS -->
+          <div style="background: var(--bg-parchment-light); border: 1px solid var(--border-gold); border-radius: var(--radius-md); padding: 1.5rem; max-width: 480px; margin: 0 auto 2rem;">
+            <h4 style="color: var(--brown-deep); margin-bottom: 0.5rem; font-size: 1rem;">📝 Kirim Nilai ke Rekap Guru:</h4>
+            <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">Hasil kuis akan dicatat otomatis ke Google Spreadsheet yang terhubung.</p>
+            <form id="studentScoreForm" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <input type="text" class="form-input" id="studentNameInput" placeholder="Nama Lengkap Siswa" required>
+              <input type="text" class="form-input" id="studentClassInput" placeholder="Kelas (Contoh: XI MIPA 1)" required>
+              <button type="submit" class="btn btn-maroon" id="btnSubmitScore" style="padding: 0.6rem;">
+                <span>Kirim Nilai ke Guru</span>
+              </button>
+              <div id="scoreSubmitStatus" style="font-size: 0.85rem; margin-top: 0.4rem;"></div>
+            </form>
+          </div>
+
+          <div class="result-actions-row">
+            <button class="btn btn-secondary" id="btnRestartQuiz">
+              <span>🔄 Ulangi Kuis</span>
+            </button>
+            <button class="btn btn-primary" id="btnQuizToMateri">
+              <span>📚 Pelajari Materi</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 5: EDITOR KUIS (GURU DAPAT MENAMBAH & MENGEDIT SOAL)
+         ======================================================================= -->
+    <section class="view-section" id="view-edit-kuis">
+      <div class="section-header">
+        <span class="section-tag">Panel Guru Sejarah</span>
+        <h2 class="section-title">✏️ Edit Kuis</h2>
+        <p class="section-desc">Guru dapat menambah soal, menghapus soal, mengedit soal, mengedit pilihan A, B, C, D, menentukan jawaban benar, menambahkan penjelasan jawaban, dan mengatur jumlah soal.</p>
+      </div>
+
+      <div class="quiz-editor-container">
+        <div class="editor-toolbar">
+          <div style="display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;">
+            <div style="font-weight: 700; color: var(--brown-deep);">
+              Kumpulan Soal Aktif (<span id="totalQuestionsCountText">15</span> soal)
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+              <label for="quizSessionLimitSelect" style="font-size: 0.85rem; font-weight: 700; color: var(--text-secondary);">Jumlah Soal per Kuis:</label>
+              <select id="quizSessionLimitSelect" class="form-select" style="padding: 0.3rem 0.6rem; font-size: 0.85rem;">
+                <option value="5">5 Soal</option>
+                <option value="10" selected>10 Soal (Standar)</option>
+                <option value="15">15 Soal</option>
+                <option value="all">Semua Soal</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+            <button class="btn btn-gold" onclick="openStudentScoresModal()" style="background: linear-gradient(135deg, #10B981, #059669); color: white; border: none; font-weight: 700; box-shadow: 0 4px 12px rgba(16,185,129,0.3);">
+              <span>📊 Rekap Nilai Siswa</span>
+            </button>
+            <button class="btn btn-secondary" onclick="resetDefaultQuizQuestions()">
+              <span>🔄 Reset Standar</span>
+            </button>
+            <button class="btn btn-secondary" onclick="addNewQuizQuestion()">
+              <span>+ Tambah Soal</span>
+            </button>
+            <button class="btn btn-maroon" onclick="saveQuizQuestions()">
+              <span>💾 Simpan Kuis</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="editor-questions-list" id="editorQuestionsList">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 6: PETA SEJARAH INTERAKTIF NUSANTARA
+         ======================================================================= -->
+    <section class="view-section" id="view-peta">
+      <div class="section-header">
+        <span class="section-tag">Geografi Sejarah Nusantara</span>
+        <h2 class="section-title">Peta Perlawanan</h2>
+        <p class="section-desc">Peta Indonesia dengan titik wilayah perlawanan. Klik salah satu titik untuk menampilkan informasi singkat mengenai perlawanan tersebut.</p>
+      </div>
+
+      <div class="map-page-wrapper">
+        <!-- VIEWPORT PETA 3D RELIEF NUSANTARA -->
+        <div class="map-viewport-container">
+          <!-- Backdrop Samudra & Dekorasi Bahari Kuno -->
+          <svg class="map-ocean-backdrop" viewBox="0 0 1000 560" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="seaGrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(212, 175, 55, 0.06)" stroke-width="1"/>
+              </pattern>
+            </defs>
+            <rect width="1000" height="560" fill="url(#seaGrid)"/>
+
+            <!-- Kompas Kuno Nusantara -->
+            <g transform="translate(80, 480) scale(0.65)" opacity="0.4">
+              <circle cx="0" cy="0" r="50" fill="none" stroke="#D4AF37" stroke-width="2"/>
+              <circle cx="0" cy="0" r="42" fill="none" stroke="rgba(212, 175, 55, 0.4)" stroke-width="1" stroke-dasharray="4,4"/>
+              <path d="M 0 -60 L 15 0 L 0 60 L -15 0 Z" fill="#D4AF37"/>
+              <path d="M -60 0 L 0 15 L 60 0 L 0 -15 Z" fill="#ECC94B"/>
+              <text x="0" y="-68" fill="#FFF" font-size="16" font-family="'Cinzel', serif" text-anchor="middle" font-weight="bold">U</text>
+            </g>
+
+            <!-- Ilustrasi Kapal Layar Kuno Pinisi -->
+            <g transform="translate(850, 75) scale(0.4)" opacity="0.35" fill="#D4AF37">
+              <path d="M 0 50 C 50 70 120 70 180 50 C 140 100 40 100 0 50 Z"/>
+              <path d="M 60 45 L 60 -40 L 10 -10 Z"/>
+              <path d="M 120 45 L 120 -60 L 70 -25 Z"/>
+            </g>
+          </svg>
+
+          <!-- STAGE PETA 3D RELIEF INDONESIA & PIN INTERAKTIF -->
+          <div class="map-3d-stage">
+            <img src="assets/peta_indonesia_3d_final.png" alt="Peta 3D Relief Indonesia" class="map-3d-img">
+            
+            <!-- Pin Interaktif Pahlawan & Daerah Perlawanan -->
+            <div id="mapPinsContainer" class="map-pins-layer">
+              <!-- Rendered by app.js -->
+            </div>
+          </div>
+        </div>
+
+        <!-- DRAWER INFORMASI TITIK PETA -->
+        <div class="map-info-drawer" id="mapInfoDrawer">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================================
+         VIEW 7: TIMELINE SEJARAH KRONOLOGIS
+         ======================================================================= -->
+    <section class="view-section" id="view-timeline">
+      <div class="section-header">
+        <span class="section-tag">Kronik Jejak Waktu</span>
+        <h2 class="section-title">Timeline Sejarah</h2>
+        <p class="section-desc">Menunjukkan perkembangan perlawanan secara kronologis. Klik kartu tahun/peristiwa di bawah ini untuk melihat detail lengkap perlawanan.</p>
+      </div>
+
+      <!-- FILTER TIMELINE -->
+      <div class="materi-controls" style="justify-content: center; margin-bottom: 3rem;">
+        <div class="materi-filters timeline-filters">
+          <button class="filter-btn active" data-era="all">Semua Abad</button>
+          <button class="filter-btn" data-era="portugis">Abad 16 (Portugis)</button>
+          <button class="filter-btn" data-era="voc">Abad 17 (VOC)</button>
+          <button class="filter-btn" data-era="belanda">Abad 19 – 20 (Hindia Belanda)</button>
+        </div>
+      </div>
+
+      <!-- KONTEN TIMELINE -->
+      <div class="timeline-container">
+        <div class="timeline-axis-line"></div>
+        <div id="timelineNodesContainer">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       MODAL DETAIL TIMELINE KRONOLOGIS (KETIKA KARTU TIMELINE DIKLIK)
+       ========================================================================= -->
+  <dialog id="timelineDetailModal" closedby="any" aria-labelledby="timelineModalTitle">
+    <div class="modal-content-box timeline-modal-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="timelineModalTitle">Peristiwa Sejarah</h3>
+        <button class="modal-close-btn" onclick="document.getElementById('timelineDetailModal').close()">&times;</button>
+      </div>
+      <div class="modal-body" id="timelineModalBody">
+        <!-- Rendered by app.js -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="document.getElementById('timelineDetailModal').close()">Tutup</button>
+        <button class="btn btn-maroon" id="btnTimelineToMateri">Buka Materi Terkait</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       MODAL BUKA MATERI TERSIMPAN (SLIDE STUDIO)
+       ========================================================================= -->
+  <dialog id="savedMaterialsModal" closedby="any" aria-labelledby="savedMaterialsModalTitle">
+    <div class="modal-content-box" style="width: 650px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="savedMaterialsModalTitle">📂 Daftar Materi Tersimpan</h3>
+        <button class="modal-close-btn" onclick="document.getElementById('savedMaterialsModal').close()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem;">
+          Pilih salah satu materi presentasi yang pernah Anda simpan untuk diedit kembali, atau buat presentasi baru:
+        </p>
+        <div id="savedMaterialsListContainer" style="display: flex; flex-direction: column; gap: 0.75rem; max-height: 400px; overflow-y: auto;">
+          <!-- Rendered by app.js -->
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="createNewPresentation()">➕ Buat Presentasi Baru</button>
+        <button class="btn btn-outline" onclick="document.getElementById('savedMaterialsModal').close()" style="color: var(--text-primary);">Tutup</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       MODAL PRESENTATION MODE (SLIDESHOW PENUH)
+       ========================================================================= -->
+  <dialog id="presentationModal" class="presentation-modal" closedby="any" aria-label="Mode Presentasi Layar Penuh">
+    <!-- Tombol Tutup Cepat di Pojok Kanan Atas -->
+    <button class="presentation-close-corner-btn" onclick="closePresentationMode()" title="Tutup Mode Presentasi (Esc)">
+      &times;
+    </button>
+    <div class="presentation-stage">
+      <div class="presentation-canvas" id="presentationCanvas">
+        <!-- Rendered by app.js -->
+      </div>
+    </div>
+    <div class="presentation-controls">
+      <div style="font-weight: 700; font-size: 0.9rem;" id="presentationCounter">Slide 1 dari 1</div>
+      <div style="display: flex; gap: 0.75rem;">
+        <button class="btn btn-secondary" onclick="prevPresentationSlide()" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+          <span>← Slide Sebelumnya</span>
+        </button>
+        <button class="btn btn-primary" onclick="nextPresentationSlide()" style="padding: 0.4rem 0.9rem; font-size: 0.85rem;">
+          <span>Slide Berikutnya →</span>
+        </button>
+      </div>
+      <div>
+        <button class="btn btn-outline" onclick="closePresentationMode()" style="padding: 0.4rem 1rem; font-size: 0.85rem; color: #FFF; border-color: rgba(255,255,255,0.4);">
+          <span>✕ Tutup (Esc)</span>
+        </button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       MODAL SINKRONISASI GOOGLE APPS SCRIPT
+       ========================================================================= -->
+  <dialog id="appsScriptModal" closedby="any" aria-labelledby="appsScriptModalTitle">
+    <div class="modal-content-box">
+      <div class="modal-header">
+        <h3 class="modal-title" id="appsScriptModalTitle">☁️ Sinkronisasi Google Sheets (Apps Script)</h3>
+        <button class="modal-close-btn" id="btnCloseSyncModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">
+          Website ini dilengkapi backend <b>Google Apps Script</b> sehingga seluruh materi slide, kumpulan soal kuis guru, serta rekap nilai siswa dapat disimpan langsung ke <b>Google Spreadsheet</b> secara gratis tanpa biaya server.
+        </p>
+
+        <div class="form-group" style="margin-bottom: 1.25rem;">
+          <label class="form-label">URL Aplikasi Web Google Apps Script:</label>
+          <input type="url" class="form-input" id="appsScriptUrlInput" value="https://script.google.com/macros/s/AKfycbyCKMMuf020J6ACpF5zSutnVh7_a02gIJ_ReHJMN8APLu5bk4PHm_7hxin6dQaVz_lRtg/exec" placeholder="https://script.google.com/macros/s/.../exec">
+        </div>
+
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1.5rem;">
+          <button class="btn btn-secondary" id="btnTestAppsScriptPing" style="flex: 1; padding: 0.5rem;">
+            <span>🔍 Uji Koneksi</span>
+          </button>
+          <button class="btn btn-maroon" id="btnSaveAppsScriptUrl" style="flex: 1; padding: 0.5rem;">
+            <span>💾 Simpan Pengaturan</span>
+          </button>
+        </div>
+
+        <div id="syncPingResult" style="font-size: 0.88rem; margin-bottom: 1.5rem;"></div>
+
+        <!-- Panduan Pemasangan Singkat -->
+        <div style="background: var(--bg-parchment-light); border-left: 4px solid var(--gold); padding: 1rem; border-radius: 4px; font-size: 0.85rem; line-height: 1.6;">
+          <b style="color: var(--brown-deep);">Petunjuk Singkat untuk Guru:</b>
+          <ol style="margin-left: 1.25rem; margin-top: 0.4rem;">
+            <li>Buka file <code>Code.gs</code> yang sudah disediakan di folder proyek ini.</li>
+            <li>Buat Google Spreadsheet baru di Drive Anda, pilih menu <i>Ekstensi &gt; Apps Script</i>, lalu salin seluruh isi <code>Code.gs</code>.</li>
+            <li>Klik <b>Deploy (Terapkan) &gt; New Deployment (Penerapan Baru)</b>, pilih Web App, atur akses ke <b>Anyone (Siapa Saja)</b>.</li>
+            <li>Salin URL hasil deploy ke dalam kotak input di atas!</li>
+          </ol>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="document.getElementById('appsScriptModal').close()">Selesai</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       MODAL BIOSKOP VIDEO SEJARAH (YOUTUBE FULL MODAL)
+       ========================================================================= -->
+  <dialog id="mapVideoModal" closedby="any" aria-label="Bioskop Video Sejarah Pahlawan">
+    <div class="modal-content-box map-video-modal-box">
+      <div class="modal-header" style="background: #111827; border-bottom: 1px solid var(--border-gold);">
+        <div>
+          <span class="materi-era-badge voc" style="font-size: 0.75rem;">🎬 Bioskop Sejarah Nusantara</span>
+          <h3 class="modal-title" id="mapVideoModalTitle" style="margin-top: 0.25rem; color: var(--gold-light);">Video Sejarah Pahlawan</h3>
+        </div>
+        <button class="modal-close-btn" onclick="closeMapVideoModal()" title="Tutup Video">&times;</button>
+      </div>
+      <div class="modal-body" style="padding: 1.25rem; background: #0b0f19;">
+        <div class="map-cinema-video-wrapper">
+          <iframe 
+            id="cinemaVideoIframe" 
+            src="" 
+            title="Video Sejarah Pahlawan" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen>
+          </iframe>
+        </div>
+        <div style="margin-top: 1.25rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem;">
+          <div>
+            <p id="cinemaVideoSubtitle" style="color: var(--gold-light); font-size: 0.95rem; font-weight: 700; margin: 0;"></p>
+            <p id="cinemaVideoSource" style="color: #94A3B8; font-size: 0.82rem; margin: 0.25rem 0 0 0;"></p>
+          </div>
+          <div style="display: flex; gap: 0.6rem;">
+            <a id="cinemaYoutubeDirectBtn" href="#" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.45rem 0.9rem;">
+              <span>🔗 Buka di YouTube</span>
+            </a>
+            <button class="btn btn-maroon" onclick="closeMapVideoModal()" style="font-size: 0.85rem; padding: 0.45rem 1.1rem;">
+              <span>✕ Tutup Bioskop</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       MODAL GANTI URL VIDEO YOUTUBE (GURU & SISWA)
+       ========================================================================= -->
+  <dialog id="changeVideoUrlModal" closedby="any" aria-labelledby="changeVideoUrlTitle">
+    <div class="modal-content-box" style="width: 560px;">
+      <div class="modal-header">
+        <h3 class="modal-title" id="changeVideoUrlTitle">⚙️ Atur URL Video YouTube</h3>
+        <button class="modal-close-btn" onclick="document.getElementById('changeVideoUrlModal').close()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size: 0.9rem; color: var(--text-secondary); margin-bottom: 1rem; line-height: 1.5;">
+          Anda dapat menyematkan video YouTube sejarah pilihan Anda untuk titik pahlawan ini (misal video animasi buatan sendiri, dokumenter TV, atau channel edukasi):
+        </p>
+        <input type="hidden" id="editVideoPointId">
+        <div class="form-group" style="margin-bottom: 1rem;">
+          <label class="form-label" id="editVideoHeroLabel">Tokoh Pahlawan: </label>
+          <input type="url" class="form-input" id="editVideoUrlInput" placeholder="Contoh: https://www.youtube.com/watch?v=... atau https://youtu.be/...">
+          <small style="color: var(--text-muted); display: block; margin-top: 0.35rem;">
+            Mendukung link YouTube standar (<code>watch?v=...</code>), link singkat (<code>youtu.be/...</code>), maupun embed URL.
+          </small>
+        </div>
+      </div>
+      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+        <button class="btn btn-outline" onclick="resetVideoToDefault()" style="color: var(--maroon); border-color: var(--maroon); font-size: 0.85rem;">
+          🔄 Reset Video Bawaan
+        </button>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-secondary" onclick="document.getElementById('changeVideoUrlModal').close()">Batal</button>
+          <button class="btn btn-maroon" onclick="saveCustomVideoUrl()">💾 Simpan Video</button>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       MODAL REKAP NILAI SISWA DARI GOOGLE SHEETS
+       ========================================================================= -->
+  <dialog id="studentScoresModal" closedby="any" aria-labelledby="studentScoresModalTitle">
+    <div class="modal-content-box" style="width: 820px; max-width: 95vw;">
+      <div class="modal-header" style="background: linear-gradient(135deg, #16243E, #1F3A60); color: white;">
+        <div style="display: flex; align-items: center; gap: 0.6rem;">
+          <span style="font-size: 1.5rem;">📊</span>
+          <div>
+            <h3 class="modal-title" id="studentScoresModalTitle" style="color: white; margin: 0;">Rekap Nilai Siswa Real-time</h3>
+            <span style="font-size: 0.78rem; color: var(--gold-light);">Tersinkronisasi otomatis dengan Google Spreadsheet (Tab: Nilai_Siswa)</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="document.getElementById('studentScoresModal').close()" style="color: white;">&times;</button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.25rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.75rem; margin-bottom: 1rem; background: var(--bg-parchment-light); padding: 0.85rem 1rem; border-radius: 8px; border: 1px solid var(--border-gold);">
+          <div style="font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5;">
+            💡 <b>Catatan Guru:</b> Data nilai berikut disimpan langsung di tab <b style="color: var(--brown-deep);">"Nilai_Siswa"</b> pada Google Sheets Anda.
+          </div>
+          <div style="display: flex; gap: 0.5rem;">
+            <button class="btn btn-secondary" onclick="loadStudentScores()" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+              <span>🔄 Segarkan Data</span>
+            </button>
+            <a href="https://docs.google.com/spreadsheets" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">
+              <span>📂 Buka Sheets</span>
+            </a>
+          </div>
+        </div>
+
+        <div id="studentScoresTableContainer" style="min-height: 200px; max-height: 55vh; overflow-y: auto;">
+          <!-- Loaded dynamically by app.js -->
+        </div>
+      </div>
+
+      <div class="modal-footer" style="display: flex; justify-content: space-between; align-items: center;">
+        <span id="studentScoresCountSummary" style="font-size: 0.85rem; color: var(--text-muted);">Memuat data...</span>
+        <button class="btn btn-maroon" onclick="document.getElementById('studentScoresModal').close()">Tutup Rekap</button>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       MODAL 1: FORM PENGISIAN IDENTITAS SISWA & LOGIN GURU (WAJIB DI AWAL)
+       ========================================================================= -->
+  <dialog id="studentIdentityModal" aria-labelledby="studentIdentityTitle">
+    <div class="modal-content-box" style="width: 520px; max-width: 95vw; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.35);">
+      <div class="modal-header" style="background: linear-gradient(135deg, #16243E, #23385E); color: white; padding: 1.25rem 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div id="studentIdentityIconBox" style="background: rgba(212, 175, 55, 0.2); border: 1px solid var(--gold); border-radius: 8px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; font-size: 1.15rem; font-weight: 800; color: var(--gold);">
+            ID
+          </div>
+          <div>
+            <h3 class="modal-title" id="studentIdentityTitle" style="color: white; margin: 0; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.5px;">Identitas Siswa</h3>
+            <span id="studentIdentitySubtitle" style="font-size: 0.8rem; color: var(--gold-light);">Media Pembelajaran Sejarah Nusantara Kelas XI</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" id="btnCloseStudentModal" onclick="closeStudentModalSafe()" style="color: white; font-size: 1.4rem;" title="Tutup">&times;</button>
+      </div>
+
+      <!-- Tab Pilihan: Siswa atau Guru -->
+      <div style="padding: 0.85rem 1.5rem 0.5rem 1.5rem; background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
+        <div style="display: flex; background: #E2E8F0; border-radius: 8px; padding: 4px; gap: 4px;">
+          <button type="button" id="tabRoleSiswa" class="role-tab-btn active" onclick="switchIdentityRole('siswa')" style="flex: 1; padding: 0.55rem 0.8rem; border: none; border-radius: 6px; font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: all 0.2s; background: white; color: var(--brown-deep); box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            👤 Masuk Siswa
+          </button>
+          <button type="button" id="tabRoleGuru" class="role-tab-btn" onclick="switchIdentityRole('guru')" style="flex: 1; padding: 0.55rem 0.8rem; border: none; border-radius: 6px; font-weight: 700; font-size: 0.88rem; cursor: pointer; transition: all 0.2s; background: transparent; color: var(--text-secondary);">
+            🔐 Masuk Guru (Sandi)
+          </button>
+        </div>
+      </div>
+
+      <!-- BAGIAN 1: FORMULIR IDENTITAS SISWA -->
+      <form id="studentIdentityForm" onsubmit="saveStudentIdentity(event)">
+        <div class="modal-body" style="padding: 1.25rem 1.5rem;">
+          <div style="background: #EFF6FF; border-left: 4px solid #3B82F6; padding: 0.75rem 1rem; border-radius: 4px; font-size: 0.85rem; color: #1E40AF; margin-bottom: 1.25rem; line-height: 1.5;">
+            👋 <b>Halo Siswa Pembelajar!</b> Silakan lengkapi identitas Anda di bawah ini agar riwayat belajar dan skor kuis sejarah Anda dapat tercatat langsung ke daftar nilai guru.
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="inputStudentFullName" style="font-weight: 700; color: var(--brown-deep);">Nama Lengkap Siswa: <span style="color: red;">*</span></label>
+            <input type="text" class="form-input" id="inputStudentFullName" placeholder="Contoh: Muhammad Erwin" required style="font-size: 0.95rem;">
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1.3fr 0.9fr; gap: 0.75rem; margin-bottom: 1rem;">
+            <div class="form-group">
+              <label class="form-label" for="selectStudentLevel" style="font-weight: 700; color: var(--brown-deep); font-size: 0.85rem;">Tingkat: <span style="color: red;">*</span></label>
+              <select class="form-select" id="selectStudentLevel" required style="font-size: 0.88rem; padding: 0.5rem 0.6rem;">
+                <option value="XI" selected>Kelas XI</option>
+                <option value="X">Kelas X</option>
+                <option value="XII">Kelas XII</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="selectStudentMajor" style="font-weight: 700; color: var(--brown-deep); font-size: 0.85rem;">Jurusan: <span style="color: red;">*</span></label>
+              <select class="form-select" id="selectStudentMajor" required style="font-size: 0.88rem; padding: 0.5rem 0.6rem;">
+                <option value="TPM" selected>TPM (Pemesinan)</option>
+                <option value="TKRO">TKRO (Otomotif)</option>
+                <option value="MPLB">MPLB (Perkantoran)</option>
+                <option value="AKL">AKL (Akuntansi)</option>
+                <option value="TJKT">TJKT (Jaringan Komputer)</option>
+                <option value="PPLG">PPLG (Rekayasa Perangkat Lunak)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="selectStudentRombel" style="font-weight: 700; color: var(--brown-deep); font-size: 0.85rem;">Rombel: <span style="color: red;">*</span></label>
+              <select class="form-select" id="selectStudentRombel" required style="font-size: 0.88rem; padding: 0.5rem 0.6rem;">
+                <option value="1" selected>Rombel 1</option>
+                <option value="2">Rombel 2</option>
+                <option value="3">Rombel 3</option>
+                <option value="4">Rombel 4</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4;">
+            🔒 Data tersimpan otomatis di perangkat Anda dan digunakan untuk pengiriman nilai kuis ke Google Spreadsheet Guru.
+          </div>
+        </div>
+
+        <div class="modal-footer" style="padding: 1rem 1.5rem; background: #F8FAFC; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;">
+          <button type="button" onclick="switchIdentityRole('guru')" style="background: none; border: none; color: var(--maroon); font-size: 0.85rem; font-weight: 700; cursor: pointer; text-decoration: underline;">
+            👨‍🏫 Masuk sebagai Guru (Sandi) &raquo;
+          </button>
+          <button type="submit" class="btn btn-maroon" style="padding: 0.6rem 1.5rem; font-weight: 700; font-size: 0.95rem; border-radius: 8px;">
+            <span>🚀 Simpan & Mulai Belajar</span>
+          </button>
+        </div>
+      </form>
+
+      <!-- BAGIAN 2: FORMULIR LOGIN GURU DENGAN SANDI -->
+      <form id="guruIdentityLoginForm" onsubmit="submitModalGuruLogin(event)" style="display: none;">
+        <div class="modal-body" style="padding: 1.5rem;">
+          <div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 0.85rem 1rem; border-radius: 6px; font-size: 0.85rem; color: #92400E; margin-bottom: 1.25rem; line-height: 1.5;">
+            🔐 <b>Area Khusus Guru & Administrator</b><br>
+            Siswa tidak dapat mengakses menu pengeditan materi, bank soal, dan sinkronisasi nilai. Masukkan sandi guru untuk membuka akses penuh.
+          </div>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="inputModalGuruPassword" style="font-weight: 700; color: var(--brown-deep); display: flex; justify-content: space-between; align-items: center;">
+              <span>Sandi Guru: <span style="color: red;">*</span></span>
+              <span style="font-weight: 600; font-size: 0.78rem; color: var(--maroon); background: #FEE2E2; padding: 2px 8px; border-radius: 4px;">Sandi: 010901</span>
+            </label>
+            <div style="position: relative;">
+              <input type="password" class="form-input" id="inputModalGuruPassword" placeholder="Masukkan sandi guru (010901)" required style="padding-right: 42px; font-size: 1.05rem; letter-spacing: 2px;">
+              <button type="button" onclick="togglePasswordVisibility('inputModalGuruPassword')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 1.1rem;" title="Lihat Sandi">👁️</button>
+            </div>
+            <div id="modalGuruErrorMsg" style="color: var(--danger); font-size: 0.84rem; margin-top: 0.5rem; display: none; font-weight: 700;"></div>
+          </div>
+
+          <div style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.4; background: #F1F5F9; padding: 0.65rem 0.85rem; border-radius: 6px;">
+            🛡️ Masukkan sandi <b>010901</b> untuk membuka fitur Buat Materi Baru, Edit Bank Soal Kuis, Rekap Nilai Siswa, dan Pengaturan Spreadsheet Guru.
+          </div>
+        </div>
+
+        <div class="modal-footer" style="padding: 1rem 1.5rem; background: #F8FAFC; display: flex; justify-content: space-between; align-items: center; gap: 0.75rem;">
+          <button type="button" onclick="switchIdentityRole('siswa')" style="background: none; border: none; color: var(--text-secondary); font-size: 0.85rem; font-weight: 600; cursor: pointer;">
+            &laquo; Kembali ke Mode Siswa
+          </button>
+          <button type="submit" class="btn btn-maroon" style="padding: 0.6rem 1.5rem; font-weight: 700; font-size: 0.95rem; border-radius: 8px;">
+            <span>🔓 Buka Kunci Guru</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       MODAL 2: LOGIN AKSES GURU / ADMIN DENGAN PASSWORD
+       ========================================================================= -->
+  <dialog id="adminLoginModal" aria-labelledby="adminLoginTitle">
+    <div class="modal-content-box" style="width: 440px; max-width: 95vw; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.35);">
+      <div class="modal-header" style="background: linear-gradient(135deg, #801616, #991B1B); color: white; padding: 1.25rem 1.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div style="background: rgba(255, 255, 255, 0.2); border-radius: 8px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;">
+            🔐
+          </div>
+          <div>
+            <h3 class="modal-title" id="adminLoginTitle" style="color: white; margin: 0; font-size: 1.15rem;">Akses Guru / Admin</h3>
+            <span style="font-size: 0.78rem; color: var(--gold-light);">Kelola Materi, Bank Soal, dan Rekap Nilai</span>
+          </div>
+        </div>
+        <button class="modal-close-btn" onclick="document.getElementById('adminLoginModal').close()" style="color: white; font-size: 1.4rem;" title="Tutup">&times;</button>
+      </div>
+
+      <form id="adminLoginForm" onsubmit="submitAdminLogin(event)">
+        <div class="modal-body" style="padding: 1.5rem;">
+          <p style="font-size: 0.88rem; color: var(--text-secondary); margin-bottom: 1.25rem; line-height: 1.5;">
+            Menu pengeditan dilindungi agar siswa tidak dapat mengotak-atik materi, soal, dan database. Silakan masukkan sandi khusus guru:
+          </p>
+
+          <div class="form-group" style="margin-bottom: 1rem;">
+            <label class="form-label" for="inputAdminPassword" style="font-weight: 700; color: var(--brown-deep);">Sandi Guru / Admin:</label>
+            <div style="position: relative;">
+              <input type="password" class="form-input" id="inputAdminPassword" placeholder="Masukkan sandi guru" required style="padding-right: 40px; font-size: 0.95rem; letter-spacing: 2px;">
+              <button type="button" onclick="togglePasswordVisibility('inputAdminPassword')" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 1rem;" title="Lihat Sandi">👁️</button>
+            </div>
+            <div id="adminLoginError" style="color: var(--danger); font-size: 0.82rem; margin-top: 0.5rem; display: none; font-weight: 600;"></div>
+          </div>
+
+          <div style="background: #FEF3C7; border-left: 4px solid #F59E0B; padding: 0.65rem 0.85rem; border-radius: 4px; font-size: 0.8rem; color: #92400E; line-height: 1.4;">
+            🔒 <i>Hanya untuk Guru & Administrator yang memiliki sandi resmi.</i>
+          </div>
+        </div>
+
+        <div class="modal-footer" style="padding: 1rem 1.5rem; background: #F8FAFC; display: flex; justify-content: space-between; align-items: center;">
+          <button type="button" class="btn btn-secondary" onclick="document.getElementById('adminLoginModal').close()">Batal</button>
+          <button type="submit" class="btn btn-maroon" style="padding: 0.55rem 1.3rem; font-weight: 700;">
+            <span>🔓 Buka Kunci Guru</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </dialog>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <h3>NUSANTARA BANGKIT</h3>
+        <p style="font-size: 0.95rem; line-height: 1.6; margin-bottom: 1rem;">
+          Media Pembelajaran Sejarah Interaktif untuk Siswa SMA/SMK Kelas XI. Mengangkat tema <b>Perlawanan Pribumi terhadap Kolonialisme</b> dengan semangat patriotisme, kearifan sejarah, dan teknologi pembelajaran modern.
+        </p>
+        <p style="font-size: 0.85rem; color: var(--gold-light);">
+          Dirancang untuk pembelajaran sejarah yang menyenangkan, bernilai, dan berdaya guna.
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <h4>Menu Pembelajaran</h4>
+        <ul>
+          <li><a href="#beranda" onclick="navigateTo('beranda')">Beranda</a></li>
+          <li><a href="#materi" onclick="navigateTo('materi')">Pustaka Materi</a></li>
+          <li><a href="#kuis" onclick="navigateTo('kuis')">Kuis Nusantara</a></li>
+          <li class="admin-only-item"><a href="#buat-materi" onclick="navigateTo('buat-materi')">Buat Slide Materi (Guru)</a></li>
+          <li class="admin-only-item"><a href="#edit-kuis" onclick="navigateTo('edit-kuis')">Editor Soal Kuis (Guru)</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links">
+        <h4>Eksplorasi</h4>
+        <ul>
+          <li><a href="#peta" onclick="navigateTo('peta')">Peta Palagan Nusantara</a></li>
+          <li><a href="#timeline" onclick="navigateTo('timeline')">Timeline Kronologis</a></li>
+          <li class="admin-only-item"><a href="#appsScriptModal" onclick="document.getElementById('appsScriptModal').showModal()">Integrasi Spreadsheet</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 Nusantara Bangkit — Media Pembelajaran Sejarah Interaktif SMA/SMK Kelas XI • Kurikulum Nasional</p>
+    </div>
+  </footer>
+
+  <!-- Script Data & Logika Aplikasi -->
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
